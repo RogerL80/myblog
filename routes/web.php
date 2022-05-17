@@ -26,3 +26,11 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('prueba', function(){
+    return "Has accedido correctamente a esta ruta";
+})->middleware(['auth:sanctum','age']);
+
+Route::get('no-autorizado', function () {
+    return "Ud no es mayor de edad";
+});
