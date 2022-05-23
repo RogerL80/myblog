@@ -13,4 +13,14 @@ class Video extends Model
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
+
+    //Relacion uno a muchos polimorfica
+    public function comments(){
+        return $this->morphToMany('App\Models\Comments', 'commentable');
+    }
+
+    //Relacion muchos a muchos polimorfica
+    public function posts(){
+        return $this->morphToMany('App\Models\Tag', 'taggable');
+    }
 }
